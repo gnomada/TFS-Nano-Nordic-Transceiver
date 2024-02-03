@@ -8,9 +8,9 @@ This project is a transceiver that utilizes the NRF24 module and an Arduino Nano
 
 The following libraries are required for this project:
 
-- [RF24](https://github.com/nRF24/RF24) by TMRh20
+- [RF24](https://github.com/nRF24/RF24) by nrf24
   - Install using Library Manager or manually with version ^1.4.7
-- [ArduinoJson](https://github.com/bblanchon/ArduinoJson) by Benoit Blanchon
+- [ArduinoJson](https://github.com/bblanchon/ArduinoJson) by bblanchon
   - Install using Library Manager or manually with version ^6.21.3
 
 ## Hardware
