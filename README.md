@@ -40,7 +40,7 @@ Dupont cables are used for connecting various components in electronics projects
 To build this project, follow these steps:
 
 1. **Hardware Assembly:**
-   - Connect the NRF24 Expansion Board to the NRF24 module and provide power within the specified voltage range.
+   - Connect the NRF24 Expansion Board to the NRF24 module.
    - Connect the NRF24 module to the Arduino Nano using Dupont cables.
    - Connect the Arduino Nano to your computer using the USB cable.
 
