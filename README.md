@@ -2,7 +2,7 @@
 
 This project is a transceiver that utilizes the NRF24 module and an Arduino Nano for communication with TFS machines.
 
-![Scheme](fritzing/scheme.png)
+![Scheme](https://raw.githubusercontent.com/gnomada/TFS-Nano-Nordic-Transceiver/main/fritzing/scheme.png)
 
 ## Dependencies
 
