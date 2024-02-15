@@ -144,7 +144,7 @@ void setup()
 {
   digitalWrite(RESET_PIN, HIGH);
   pinMode(RESET_PIN, OUTPUT);
-  Serial.begin(9600);
+  Serial.begin(115200);
   telemetryReceiver.begin();
 }
 
