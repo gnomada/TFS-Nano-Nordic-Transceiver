@@ -37,10 +37,8 @@ class ErrorManager
           break;
       }
 
-      // Append attempt number to the description
       description += " (Attempt " + String(attempt) + ")";
 
-      // Create an error JSON document
       DynamicJsonDocument errorDoc(128);
       errorDoc["module"]["type"] = "transceptor";
       errorDoc["module"]["name"] = "nordic";
@@ -48,26 +46,20 @@ class ErrorManager
       errorDoc["error"]["category"] = category;
       errorDoc["error"]["description"] = description;
 
-      // Serialize the error JSON document to a string
       String errorJson;
       serializeJson(errorDoc, errorJson);
 
-      // Print the error JSON string
       Serial.println(errorJson);
 
-      // Increment error count
       errorCount++;
 
-      // Check if error count has reached 20
       if (errorCount >= 20)
       {
-        // Send a JSON indicating the board will reset
         DynamicJsonDocument resetDoc(64);
         resetDoc["module"]["type"] = "transceptor";
         resetDoc["module"]["name"] = "nordic";
         resetDoc["info"]["message"] = F("reset");
 
-        // Serialize the reset JSON document to a string
         String resetJson;
         serializeJson(resetDoc, resetJson);
 
@@ -150,5 +142,28 @@ void setup()
 
 void loop()
 {
+  if (Serial.available() > 0) {
+    String command = Serial.readStringUntil('\n'); // Lee el comando hasta que se recibe un salto de línea
+    command.trim(); // Elimina los espacios en blanco al inicio y al final del comando
+    
+    if (command.equals("connect")) {
+      // Espera más comandos en un bucle
+      while (true) {
+        if (Serial.available() > 0) {
+          String nextCommand = Serial.readStringUntil('\n');
+          nextCommand.trim();
+          
+          Serial.println("connect");
+          if (nextCommand.equals("disconnect")) {
+
+            break;
+          }
+
+        }
+      }
+    }
+  }
+
+  // Procesa la recepción de telemetría como antes
   telemetryReceiver.printTelemetry();
 }
