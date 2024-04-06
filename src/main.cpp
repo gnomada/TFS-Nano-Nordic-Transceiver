@@ -27,13 +27,6 @@ void loop() {
     radio.stopListening();
     bool success = radio.write(command.c_str(), sizeof command + 1);
     radio.startListening();
-
-    if (success) {
-      Serial.print("Command sent: ");
-      Serial.println(command);
-    } else {
-      Serial.println("Error: Failed to send command");
-    }
   }
 
   if (radio.available()) {
